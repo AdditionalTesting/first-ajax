@@ -33,7 +33,9 @@ button3456.addEventListener('click', function () {
             var msg = document.createElement( 'p' );
             msg.innerText = 'Whoops, something went wrong!';
             document.body.append( msg );
-  })
+  }).always( function() {
+            console.log( 'REQUEST COMPLETE' );
+        } );
 
 });
 });
