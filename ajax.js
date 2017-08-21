@@ -65,4 +65,59 @@ var request7 = $.ajax({
           console.log( 'REQUEST COMPLETE' );
       } );
 });
+
+var button8 = document.getElementById('button_step8')
+
+button8.addEventListener('click', function () {
+
+  var request8 = $.ajax({
+    url: 'http://first-ajax-api.herokuapp.com/time',
+    method: 'GET',
+    data: {timezone: 'Europe/Sofia'},
+    dataType: 'text'
+  }).done(function (data) {
+    console.log( 'REQUEST WAS SUCCESSFUL')
+    var myElement = document.createElement( 'div' );
+    var step8 = document.querySelector('#step8');
+            myElement.innerHTML = data;
+            step8.append( myElement );
+  }).fail( function( jqXHR, textStatus, errorThrown ) {
+            console.log( 'REQUEST FAILED' );
+            // console.log( textStatus, errorThrown );
+
+            var msg = document.createElement( 'p' );
+            msg.innerText = 'Whoops, something went wrong!';
+            document.body.append( msg );
+  }).always( function() {
+            console.log( 'REQUEST COMPLETE' );
+        } );
+
+});
+
+var button9 = document.getElementById('button_step9')
+
+button9.addEventListener('click', function () {
+
+  var request9 = $.ajax({
+    url: 'http://first-ajax-api.herokuapp.com/a_car',
+    method: 'GET',
+    dataType: 'html'
+  }).done(function (data) {
+    console.log( 'REQUEST WAS SUCCESSFUL')
+    var myElement = document.createElement( 'div' );
+    var step9 = document.querySelector('#step9');
+            myElement.innerHTML = data;
+            step9.append( myElement );
+  }).fail( function( jqXHR, textStatus, errorThrown ) {
+            console.log( 'REQUEST FAILED' );
+            // console.log( textStatus, errorThrown );
+
+            var msg = document.createElement( 'p' );
+            msg.innerText = 'Whoops, something went wrong!';
+            document.body.append( msg );
+  }).always( function() {
+            console.log( 'REQUEST COMPLETE' );
+        } );
+
+});
 });
